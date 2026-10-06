@@ -39,3 +39,4 @@ int main()
 	std::cout << num1 << "-" << num2 << " = " << subtract(num1, num2) << "\n";
 
 	return 0;
+}
