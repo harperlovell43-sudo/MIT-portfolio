@@ -4,39 +4,56 @@ portrfolio for MIT
 2026 (11 years old)
 
 big projects on CPP:
-4-in-one calculator
+project 1: 2 source file calc (use one source file called, main.cpp, another called input.cpp)
+main.cpp:
 #include <iostream>
-float multiply(float x, float y)
-{
-	float z{ x * y };
-	return z;
-}
-float divide(float x, float y)
-{
-	float z{ x / y };
-	return z;
-}
-float add(float x, float y)
-{
-	float z{ x + y };
-	return z;
-}
-float subtract(float x, float y)
-{
-	float z{ x - y };
-	return z;
-}
+#include <string>
+float input(); //lets you use input
+
 int main()
 {
-	std::cout << "enter 2 numbers: ";
-	float num1{};
-	float num2{};
-	std::cin >> num1 >> num2;
+	std::string operation{};
+	std::cout << "select an operation {enter divide, multi, add, or sub}: " << '\n'; //what operation, ex: divide (divides num1 and num2)
+	std::cin >> operation;
 	std::cout << "\n";
-	std::cout << num1 << "*" << num2 << " = " << multiply(num1, num2) << "\n";
-	std::cout << num1 << "/" << num2 << " = " << divide(num1, num2) << "\n";
-	std::cout << num1 << "+" << num2 << " = " << add(num1, num2) << "\n";
-	std::cout << num1 << "-" << num2 << " = " << subtract(num1, num2) << "\n";
 
+	std::cout << "enter 2 numbers: "; //what 2 numbers you use
+	float num1{ input() };
+	float num2{ input() };
+	float endingnum{};
+
+	if (operation == "divide") //divides num1 by num2
+	{
+		endingnum = num1 / num2;
+		std::cout << num1 << " / " << num2 << " = " << endingnum << '\n';
+	}
+
+	if (operation == "multi") //multiplies num1 by num 2
+	{
+		endingnum = num1 * num2;
+		std::cout << num1 << " * " << num2 << " = " << endingnum << '\n';
+	}
+	
+	if (operation == "add") //adds num1 to num2
+	{
+		endingnum = num1 + num2;
+     	std::cout << num1 << " + " << num2 << " = " << endingnum << '\n';
+	}
+	if (operation == "sub") //subtracts num1 by num2;
+	{
+		endingnum = num1 - num2;
+		std::cout << num1 << " - " << num2 << " = " << endingnum << '\n';
+
+	}
 	return 0;
 }
+
+input.cpp:
+#include <iostream>
+float input()
+{
+	float input{};
+	std::cin >> input; //input for num1 and num2
+	return input;
+}
+___________________________________________________________________________________________________
